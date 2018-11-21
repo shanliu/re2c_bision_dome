@@ -23,7 +23,7 @@ mytest_lex_global scanner_globals;
 int mytest_scan(lex_param * lex){
     //lex词法分析时附带数据可以放到  lex中,供后面语法分析使用
     /*!re2c
-      //这里定义或下面直接定义
+      //这里定义或下面直接定义,支持正则.
       numbers = [0-9]+ ;
       add = "+" ;
 

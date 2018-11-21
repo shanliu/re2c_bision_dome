@@ -37,8 +37,10 @@ void yyerror (char * msg);
 %type <ast> exp line
 
 //语法
+//bnf范式:左边为非终结符: 终结符 非终结符 组成
+//{}里为action ,对应的辅助动作,PHP通过此方式构建抽象语法树
 %%
-input:    /* empty */
+input:    /* empty */ //开始,如果构建抽象语法树,这里可以创建树根
      | input line
     ;
 line:  exp T_BR      { $$ = $1;}

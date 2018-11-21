@@ -440,8 +440,8 @@ static const yytype_uint8 yytranslate[] =
   /* YYRLINE[YYN] -- Source line where rule number YYN was defined.  */
 static const yytype_uint8 yyrline[] =
 {
-       0,    41,    41,    42,    44,    46,    47,    48,    49,    50,
-      52
+       0,    43,    43,    44,    46,    48,    49,    50,    51,    52,
+      54
 };
 #endif
 
@@ -1221,43 +1221,43 @@ yyreduce:
   switch (yyn)
     {
         case 4:
-#line 44 "mytest.y" /* yacc.c:1646  */
+#line 46 "mytest.y" /* yacc.c:1646  */
     { (yyval.ast) = (yyvsp[-1].ast);}
 #line 1227 "mytest.tab.c" /* yacc.c:1646  */
     break;
 
   case 5:
-#line 46 "mytest.y" /* yacc.c:1646  */
+#line 48 "mytest.y" /* yacc.c:1646  */
     { (yyval.ast) = (yyvsp[0].ast);          }
 #line 1233 "mytest.tab.c" /* yacc.c:1646  */
     break;
 
   case 6:
-#line 47 "mytest.y" /* yacc.c:1646  */
+#line 49 "mytest.y" /* yacc.c:1646  */
     { (yyval.ast) = mytest_act((yyvsp[-2].ast),(yyvsp[-1].ast),'+');      }
 #line 1239 "mytest.tab.c" /* yacc.c:1646  */
     break;
 
   case 7:
-#line 48 "mytest.y" /* yacc.c:1646  */
+#line 50 "mytest.y" /* yacc.c:1646  */
     { (yyval.ast) = mytest_act((yyvsp[-2].ast),(yyvsp[-1].ast),'-');      }
 #line 1245 "mytest.tab.c" /* yacc.c:1646  */
     break;
 
   case 8:
-#line 49 "mytest.y" /* yacc.c:1646  */
+#line 51 "mytest.y" /* yacc.c:1646  */
     {(yyval.ast) = mytest_act((yyvsp[-2].ast),(yyvsp[-1].ast),'*');}
 #line 1251 "mytest.tab.c" /* yacc.c:1646  */
     break;
 
   case 9:
-#line 50 "mytest.y" /* yacc.c:1646  */
+#line 52 "mytest.y" /* yacc.c:1646  */
     {(yyval.ast) = mytest_act((yyvsp[-2].ast),(yyvsp[-1].ast),'/');}
 #line 1257 "mytest.tab.c" /* yacc.c:1646  */
     break;
 
   case 10:
-#line 52 "mytest.y" /* yacc.c:1646  */
+#line 54 "mytest.y" /* yacc.c:1646  */
     { (yyval.ast) = mytest_act((yyvsp[-1].ast),NULL,'n');}
 #line 1263 "mytest.tab.c" /* yacc.c:1646  */
     break;
@@ -1491,7 +1491,7 @@ yyreturn:
 #endif
   return yyresult;
 }
-#line 55 "mytest.y" /* yacc.c:1906  */
+#line 57 "mytest.y" /* yacc.c:1906  */
 
 
 mytest_ast * mytest_act(mytest_ast *a,mytest_ast *b,char op){
