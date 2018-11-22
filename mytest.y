@@ -19,6 +19,7 @@ void yyerror (char * msg);
 //%parse-param { char *parser }//自定义解析入口函数参数
 
 //终结符
+%token END 0 "end of file"
 %token T_BEGIN
 %token T_OPTAG_ADD
 %token T_OPTAG_DEC
@@ -34,7 +35,7 @@ void yyerror (char * msg);
 %token T_INPUT_ERROR
 
 //定义非终结符的返回句柄[YYSTYPE]
-%type <ast> exp line
+%type <ast> exp brline
 
 //语法
 //bnf范式:左边为非终结符: 终结符 非终结符 组成
@@ -43,7 +44,9 @@ void yyerror (char * msg);
 input:    /* empty */ //开始,如果构建抽象语法树,这里可以创建树根
      | input line
     ;
-line:  exp T_BR      { $$ = $1;}
+line: T_BR | brline
+;
+brline: exp T_BR { $$ = $1;          }
 ;
 exp:      T_NUMBER           { $$ = $1;          } //$$ 为 exp $1 为第一个语法T_NUMBER 依次类推 所表示类型上面定义
    | exp exp T_OPTAG_ADD   { $$ = mytest_act($1,$2,'+');      }
@@ -65,7 +68,7 @@ int yylex (YYSTYPE *yylval) {
         while(1){
             lex_param lex;//词法分析时附带数据
             token = mytest_scan(&lex);
-            if (token == T_UNKNOWN ||token == T_BEGIN ||token == T_END) {
+            if (token == T_UNKNOWN ||token == T_BEGIN ||token == T_END ||token ==T_WHITESPACE) {
                  continue;
             }
             if (token == T_INPUT_ERROR) {

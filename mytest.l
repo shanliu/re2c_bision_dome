@@ -41,17 +41,27 @@ int mytest_scan(lex_param * lex){
       <ST_IN_SCRIPTING>[\n]+ {return T_BR;}
       <ST_IN_SCRIPTING>"exit" { return T_EXIT; }
       <ST_IN_SCRIPTING>"?>" {return T_END;}
-      <ST_IN_SCRIPTING>[^] {return T_UNKNOWN;}
-      <*>[^] {return T_INPUT_ERROR;}
+      <ST_IN_SCRIPTING>[^] {
+        if (YYCURSOR > YYLIMIT) {
+            return END;
+        }
+        return T_UNKNOWN;
+      }
+      <*>[^] {
+        if (YYCURSOR > YYLIMIT) {
+            return END;
+        }
+        return T_INPUT_ERROR;
+      }
      */
 }
 
 
 
-void mytest_scan_start(char * parser){
+void mytest_scan_start(char * parser,int len){
     BEGIN(INITIAL);//开始进入
     YYCURSOR = parser;
-    YYLIMIT=parser;
+    YYLIMIT=parser+len;
 }
 
 

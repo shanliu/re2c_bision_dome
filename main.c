@@ -23,7 +23,7 @@ int main(int argc, char* argv[]){
     fseek(file,0L,SEEK_SET);
     fread(p,flen,1,file);
     fclose(file);
-    mytest_scan_start(p);
+    mytest_scan_start(p,flen);
     p[flen] = 0;
 
     mytest_yyparse();

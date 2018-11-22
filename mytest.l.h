@@ -15,7 +15,7 @@ typedef struct {
 }lex_param;
 
 int mytest_scan(lex_param * lex);
-void mytest_scan_start();
+void mytest_scan_start(char * parser,int len);
 
 
 

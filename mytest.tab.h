@@ -45,6 +45,7 @@ extern int mytest_yydebug;
 # define YYTOKENTYPE
   enum yytokentype
   {
+    END = 0,
     T_BEGIN = 258,
     T_OPTAG_ADD = 259,
     T_OPTAG_DEC = 260,
